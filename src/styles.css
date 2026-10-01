@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "IBM Plex Sans", "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --color-bg: #121410;
+  --color-bg-raised: #1a1d18;
+  --color-surface: #20241e;
+  --color-surface-2: #282d26;
+  --color-fg: #ebe6d8;
+  --color-muted: #9a9486;
+  --color-faint: #6e695e;
+  --color-line: #34392f;
+  --color-brass: #d6a15c;
+  --color-brass-dim: #8a6840;
+  --color-sage: #8fa87a;
+  --color-clay: #c4846c;
+  --color-ink: #121410;
+  --radius-card: 1.25rem;
+}
+
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  html {
+    color-scheme: dark;
+    background: var(--color-bg);
+    color: var(--color-fg);
+  }
+
+  html[data-theme="light"] {
+    color-scheme: light;
+    --color-bg: #f3efe6;
+    --color-bg-raised: #fffdf8;
+    --color-surface: #fffdf8;
+    --color-surface-2: #e7e1d4;
+    --color-fg: #1c1b16;
+    --color-muted: #5e594e;
+    --color-faint: #7a7468;
+    --color-line: #d9d1c2;
+    --color-brass: #8a5a1e;
+    --color-brass-dim: #b8884a;
+    --color-sage: #2f6b45;
+    --color-clay: #9a4632;
+    --color-ink: #1c1b16;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background: var(--color-bg);
+    color: var(--color-fg);
+    line-height: 1.5;
+    min-height: 100vh;
+    overflow-x: clip;
+  }
+
+  ::selection {
+    background: var(--color-brass);
+    color: var(--color-ink);
+  }
+}
+
+@utility spec-mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
